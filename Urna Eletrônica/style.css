@@ -1,0 +1,186 @@
+/* comentar novos aprendizados de estilização */
+@keyframes pisca {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+} /* usando o KEYFRAME */
+
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+.area-urna{
+    display: flex;
+    justify-content: center;
+}
+
+.urna{
+    background-color: #dbd5c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.tela{
+    width: 500px;
+    height: 400px;
+    background: linear-gradient(to right, #e8e8e8, #c1c1c1); /* Efeito degradê no fundo da urna*/
+    border:2px solid #999;
+    display: flex;
+    flex-direction: column;
+}
+
+.teclado{
+    margin-left: 10px;
+    height: 400px;
+    background: #403a3a;
+}
+
+.teclado-linha{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.teclado-botao{
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    width: 70px;
+    height: 30px;
+    font-size: 25px;
+    background: black;
+    box-shadow: 2px 2px 0px #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.teclado-botao-press{
+    box-shadow: 0px 0px 0px #555;
+}
+.btn-branco{
+    font-size: 15px;
+    color: #000;
+    background: #fff;
+}
+.btn-corrige{
+    font-size: 15px;
+    color: #000;
+    background-color: #f09046;
+}
+.btn-confirma{
+    width: 90px;
+    height: 50px;
+    background-color: #48c079;
+    color: #000;
+}
+.d1{
+    flex: 1;
+    display: flex;
+}
+.d2{
+    height: 50px;
+    padding: 0 0 10px 10px;
+    border-top: 1px solid #999;
+}
+.d1-left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+.d1-right{
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.d1-1, .d1-2, .d1-3{
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.d1-2{
+    display: flex;
+    justify-content: center;
+}
+.d1-4{
+    flex: 1;
+    line-height: 35px;
+}
+.numretangulo{
+    border: 2px solid #000;
+    width: 40px;
+    height: 50px;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 35px;
+}
+.pisca{
+    animation-name: pisca; /* lembra do keyframe criado lá em cima ?? aqui vc chama ele :D*/
+    animation-duration: 1s; /* duração da animação */
+    animation-iteration-count: infinite; /*quantas vezes vai se repetir ?*/
+}
+.candidato {
+    border: 1px solid #000;
+    width: 100%;
+    background-color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+.candidato2 {
+    border: 1px solid #000;
+    width: 85%;
+    background-color: #fff;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+}
+.candidato img, .candidato2 img{
+    width: 100%;
+}
+.ALERTA{
+    color: #ff0000;
+    font-size: 50px;
+    line-height: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.branco{
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.FIM{
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.candidatos{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+.cola{
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+}
+.cola div{
+    border: #000 1px solid;
+    line-height: 30px;
+    font-size: 20px;
+    width: 200px;
+    text-align: center;
+}
+h4{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
