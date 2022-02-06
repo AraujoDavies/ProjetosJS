@@ -15,42 +15,46 @@ onload = () => {
     q('#btn-9').onclick = () => digito(9);
     q('#btn-0').onclick = () => digito(0);
     q('#btn-virgula').onclick = virgula;
-    q('#btn-AC').onclick = limpa
-    /*
-    q('#btn-').onclick = () => 
-    */
+    q('#btn-AC').onclick = limpa;
+    q('#btn-soma').onclick = () => operador('+');
+    q('#btn-subtracao').onclick = () => operador('-');
+    q('#btn-multiplicacao').onclick = () => operador('*');
+    q('#btn-divisao').onclick = () => operador('/');
+    q('#btn-igual').onclick = calcula;
 }
 
 //variaveis que armazenam os valores/operadores e o estado da calculadora
-let valorDoVisor = '0';
+let sValor = '0';
 let ehNovoNumero = true; // é um novo valor ? 
+let valorAnterior = 0;
+let operacaoPendente = null;
 
 //atualiza os numeros do visor
 const attVisor = () => {
-    let [inteiro, decimal] = valorDoVisor.split(',');
+    let [parteInteira, parteDecimal] = sValor.split(',');
     let v = '';
-    let c = 0;
+    c = 0;
     
     //laço for me retornando a quantidade de numeros inteiros inputados
-    for (let i = inteiro.length - 1; i >= 0; i--){
+    for (let i = parteInteira.length - 1; i >= 0; i--){
         //if para acrescenter o ponto a cada 3 caracteres 
         if(++c > 3){
             v = "." + v;
             c = 1;
         }
-        v = inteiro[i] + v;
+        v = parteInteira[i] + v;
     }
     //para nao retornar undefined
-    v = v + (decimal ? ',' + decimal : '');
+    v = v + (parteDecimal ? ',' + parteDecimal : '');
     q('.input--area').innerText = v;
 }
 
 //pega os clicks
 const digito = (n) => {
     if (ehNovoNumero){
-        valorDoVisor = '' + n;
+        sValor = '' + n;
         ehNovoNumero = false;
-    } else valorDoVisor += n;
+    } else sValor += n;
     attVisor();
     efeitoClick(n);
 }
@@ -58,16 +62,54 @@ const digito = (n) => {
 //só pode uma virgula
 const virgula = () => {
     if (ehNovoNumero){
-        valorDoVisor = '0,';
+        sValor = '0,';
         ehNovoNumero = false;
-    } else if(valorDoVisor.indexOf(',') == -1) valorDoVisor += ',';
+    } else if(sValor.indexOf(',') == -1) sValor += ',';
     attVisor();
 }
 
 // botão AC All Clear 
 const limpa = () => {
     ehNovoNumero = true;
-    valorDoVisor = '0';
+    sValor = '0';
+    valorAnterior = 0;
+    operacaoPendente = null;
+    attVisor();
+}
+
+//converte string para Float
+const valorAtual = () => parseFloat(sValor.replace(',', '.'));
+
+// faz os cálculos
+const operador = (op) => {
+    calcula();
+    valorAnterior = valorAtual();
+    operacaoPendente = op;
+    ehNovoNumero = true;
+}
+
+const calcula = () => {
+    if (operacaoPendente != null){
+        let resultado;
+        switch (operacaoPendente){
+            case '+': 
+                resultado = valorAnterior + valorAtual(); 
+                break;
+            case '-':   
+                resultado = valorAnterior - valorAtual(); 
+                break;
+            case '*':   
+                resultado = valorAnterior * valorAtual(); 
+                break;
+            case '/':   
+                resultado = valorAnterior / valorAtual(); 
+                break;
+        }
+        sValor = resultado.toString().replace('.',',');
+    }
+    ehNovoNumero = true; 
+    valorAnterior = 0;
+    operacaoPendente = null;
     attVisor();
 }
 
