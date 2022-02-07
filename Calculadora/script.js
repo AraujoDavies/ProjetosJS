@@ -37,6 +37,10 @@ let operacaoPendente = null;
 
 const powerOnOff = () => {
     if (estaLigado) {
+        sValor = '';
+        ehNovoNumero = true; // é um novo valor ? 
+        valorAnterior = 0;
+        operacaoPendente = null;
         exibirDataNoVisor();
         attVisor();
         estaLigado = false;
@@ -81,6 +85,11 @@ const attVisor = () => {
         v = '';
         q('.input--area').innerText = v;
     }
+    // para não exibir "NaN" no visor
+    if (isNaN(valorAnterior)){  
+        q('.input--area').innerText = 'Error';
+        setTimeout(limpa, 2500)
+    }
 }
 
 //pega os clicks
@@ -91,7 +100,6 @@ const digito = (n) => {
             ehNovoNumero = false;
         } else sValor += n;
         attVisor();
-        efeitoClick(n);
     }
 }
 
@@ -189,6 +197,7 @@ const efeitoClick = (n) => {
 
 /* TAREFAS:
 add efeito de click;
-Adicionar evento ao botão Power on/off;
+Adicionar evento ao botão Power on/off;     OK
 arrumar função q exibe data no visor;
+arrumar click na , para retornar '0,'
 */
