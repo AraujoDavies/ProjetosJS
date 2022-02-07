@@ -39,10 +39,17 @@ const attVisor = () => {
     for (let i = parteInteira.length - 1; i >= 0; i--){
         //if para acrescenter o ponto a cada 3 caracteres 
         if(++c > 3){
-            v = "." + v;
+            v = "." + v; //BUG = -.125
             c = 1;
         }
-        v = parteInteira[i] + v;
+
+        // resolvendo BUG visor exibe = -.123
+        if (parteInteira[0] == "-") {
+            v = parteInteira[i] + v;
+            v = v.replace('-.' , '-');
+        }
+        else v = parteInteira[i] + v;
+        
     }
     //para nao retornar undefined
     v = v + (parteDecimal ? ',' + parteDecimal : '');
