@@ -8,7 +8,7 @@
     <style>
         .bola{
             width: 50px;
-            height:60px;
+            height: 60px;
             border-radius: 50%;
             background-color: black;
             position: absolute;
@@ -20,8 +20,12 @@
             let bola = document.createElement('div');
             bola.setAttribute('class', 'bola');
 
-            let p1 = Math.floor(Math.random() * 500);
-            let p2 = Math.floor(Math.random() * 500);
+            let widthUser = window.screen.width - 100; //*2
+            let heightUser = window.screen.height - 240; //*4
+
+            let p1 = Math.floor(Math.random() * widthUser);
+            let p2 = Math.floor(Math.random() * heightUser);
+
             bola.setAttribute('style', 'left: ' + p1 +'px; top: ' + p2 + 'px;');
             bola.setAttribute('onclick' , 'estourar(this)');
             
@@ -33,15 +37,19 @@
         }
 
         const start = () => {
-            setInterval(addBalao, 500)
+            setInterval(addBalao, 1000);
         }
 
+        console.log(window.screen.width);
+        console.log(window.screen.height);
     </script>
 
 </head>
-<body onload = 'start()'>
+<body onload = 'start()' >
+    
     <!-- adicionar niveis (easy, normal, hard) no set Interval -->
     <!-- adicionar contador de bolas estouradas-->
     <!-- adicionar recorde -->
+    <!-- adicionar Bolas coloridas-->
 </body>
 </html>
