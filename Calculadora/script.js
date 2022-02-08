@@ -5,7 +5,6 @@ let estaLigado = false;
 
 q('#btn-Power').addEventListener('click', () => {
     powerOnOff();
-    
 });
 
 //Clicks 
@@ -29,6 +28,19 @@ onload = () => {
     q('#btn-igual').onclick = calcula;
 }
 
+//adiciona efeito de clique
+qA('.tecla,.tecla2,.tecla-power').forEach( (item) => {
+    item.addEventListener('mousedown', (e) => {
+        e.target.classList.add('press')
+    })
+    item.addEventListener('mouseup', (e) => {
+        e.target.classList.remove('press')
+    })
+    item.addEventListener('mouseout', (e) => {
+        e.target.classList.remove('press')
+    })
+})
+
 //variaveis que armazenam os valores/operadores e o estado da calculadora
 let sValor = '';
 let ehNovoNumero = true; // é um novo valor ? 
@@ -38,7 +50,7 @@ let operacaoPendente = null;
 const powerOnOff = () => {
     if (estaLigado) {
         sValor = '';
-        ehNovoNumero = true; // é um novo valor ? 
+        ehNovoNumero = true; 
         valorAnterior = 0;
         operacaoPendente = null;
         exibirDataNoVisor();
@@ -46,7 +58,7 @@ const powerOnOff = () => {
         estaLigado = false;
     } else {
         sValor = '';
-        ehNovoNumero = true; // é um novo valor ? 
+        ehNovoNumero = true; 
         valorAnterior = 0;
         operacaoPendente = null;
         exibirDataNoVisor();
@@ -196,7 +208,7 @@ const efeitoClick = (n) => {
 }
 
 /* TAREFAS:
-add efeito de click;
+add efeito de click;    OK
 Adicionar evento ao botão Power on/off;     OK
 arrumar função q exibe data no visor;
 arrumar click na , para retornar '0,'

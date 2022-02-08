@@ -119,3 +119,9 @@ body{
 .fonte30{
     font-size: 30px;
 }
+.press{
+    border-top: 2px solid lightslategrey;
+    border-left: 2px solid lightslategrey;
+    border-bottom: 0 solid lightslategrey;
+    border-right: 0 solid lightslategrey;
+}
