@@ -1,0 +1,14 @@
+.bola{
+    width: 50px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: green;
+    position: absolute;
+}
+
+.red{background-color: red;};
+.green{background-color: green;}
+.yellow{background-color: yellow;}
+.blue{background-color: blue;}
+.orange{background-color: orange;}
+.pink{background-color: pink;}

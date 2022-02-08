@@ -5,51 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo Estourar Balão</title>
-    <style>
-        .bola{
-            width: 50px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: black;
-            position: absolute;
-        }
-    </style>
-
-    <script>
-        const addBalao = () => {
-            let bola = document.createElement('div');
-            bola.setAttribute('class', 'bola');
-
-            let widthUser = window.screen.width - 100; //*2
-            let heightUser = window.screen.height - 240; //*4
-
-            let p1 = Math.floor(Math.random() * widthUser);
-            let p2 = Math.floor(Math.random() * heightUser);
-
-            bola.setAttribute('style', 'left: ' + p1 +'px; top: ' + p2 + 'px;');
-            bola.setAttribute('onclick' , 'estourar(this)');
-            
-            document.body.append(bola);
-        }
-
-        const estourar = (obj) => {
-            document.body.removeChild(obj);
-        }
-
-        const start = () => {
-            setInterval(addBalao, 1000);
-        }
-
-        console.log(window.screen.width);
-        console.log(window.screen.height);
-    </script>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body onload = 'start()' >
-    
+<body onload="start()"> <!--onload="start()"-->
+
+
+    <!-- adicionar Play/Pause game--> 
     <!-- adicionar niveis (easy, normal, hard) no set Interval -->
+    <!-- pegar nome do jogador -->
+
     <!-- adicionar contador de bolas estouradas-->
-    <!-- adicionar recorde -->
-    <!-- adicionar Bolas coloridas-->
+    <!-- adicionar lista de recorde -->
+    <!-- *adicionar Bolas coloridas--> 
+    <script src="script.js"></script>
 </body>
 </html>
