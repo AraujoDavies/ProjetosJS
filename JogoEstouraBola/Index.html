@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Estourar Balão</title>
+    <style>
+        .bola{
+            width: 50px;
+            height:60px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        const addBalao = () => {
+            let bola = document.createElement('div');
+            bola.setAttribute('class', 'bola');
+
+            let p1 = Math.floor(Math.random() * 500);
+            let p2 = Math.floor(Math.random() * 500);
+            bola.setAttribute('style', 'left: ' + p1 +'px; top: ' + p2 + 'px;');
+            bola.setAttribute('onclick' , 'estourar(this)');
+            
+            document.body.append(bola);
+        }
+
+        const estourar = (obj) => {
+            document.body.removeChild(obj);
+        }
+
+        const start = () => {
+            setInterval(addBalao, 500)
+        }
+
+    </script>
+
+</head>
+<body onload = 'start()'>
+    <!-- adicionar niveis (easy, normal, hard) no set Interval -->
+    <!-- adicionar contador de bolas estouradas-->
+    <!-- adicionar recorde -->
+</body>
+</html>
