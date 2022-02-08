@@ -177,34 +177,35 @@ const calcula = () => {
     }
 }
 
+let interval;
 //relógio + data da calculadora
 function exibirDataNoVisor(){
-    let data = new Date();
-    let dia = data.getDate();
-    let mes = data.getMonth() + 1; //jan = 0
-    let ano = data.getFullYear();
-    let hora = data.getHours();
-    let minutos = data.getMinutes();
-    let segundos = data.getSeconds();
-    let dias = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-    let diaSemana = dias[data.getDay()];
-
-    if(dia < 10) { dia =`0${dia}`};
-    if(mes < 10) { mes =`0${mes}`};
-    if(hora < 10) { hora =`0${hora}`};
-    if(minutos < 10) { minutos =`0${minutos}`};
-    if(segundos < 10) { segundos =`0${segundos}`};
-
+    
     if (!estaLigado){
-        q('.visor .date').innerHTML = `${diaSemana} - ${dia}/${mes}/${ano} - ${hora}:${minutos}:${segundos}`;
+        interval = setInterval( () => {
+            let data = new Date();
+            let dia = data.getDate();
+            let mes = data.getMonth() + 1; //jan = 0
+            let ano = data.getFullYear();
+            let hora = data.getHours();
+            let minutos = data.getMinutes();
+            let segundos = data.getSeconds();
+            let dias = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 
+            'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
+            let diaSemana = dias[data.getDay()];
+        
+            if(dia < 10) { dia =`0${dia}`};
+            if(mes < 10) { mes =`0${mes}`};
+            if(hora < 10) { hora =`0${hora}`};
+            if(minutos < 10) { minutos =`0${minutos}`};
+            if(segundos < 10) { segundos =`0${segundos}`};
+        
+            q('.visor .date').innerHTML = `${diaSemana} - ${dia}/${mes}/${ano} - ${hora}:${minutos}:${segundos}`;
+        }, 500);
     } else{
+        clearInterval(interval);
         q('.visor .date').innerHTML = '';
     }
-}
-
-//efeito de click
-const efeitoClick = (n) => {
- 
 }
 
 /* TAREFAS:
