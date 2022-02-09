@@ -1,16 +1,17 @@
 //var
 let playerName = '';
+let bolasEstouradas = 0;
 
 //events
 document.querySelector('#start--game').addEventListener('click', (e)=>{
     e.target.style.display = 'none';
     getPlayer();
-    alert('Para encerrar o game tecle Space')
+    alert('Para PAUSAR o game tecle SPACE');
     start();
 })
 
 document.body.addEventListener('keyup', (t) => {
-    let teclou = t.code
+    let teclou = t.code;
     if (teclou == 'Space'){
         pauseGame();
     }
@@ -42,6 +43,9 @@ const addBalao = () => {
 
 const estourar = (obj) => {
     document.querySelector('.tela--game').removeChild(obj);
+    
+    bolasEstouradas++;
+    document.querySelector('#contador span').innerHTML = bolasEstouradas;
 }
 
 const start = () => {
@@ -49,9 +53,9 @@ const start = () => {
 }
 
 const getPlayer = () => {
-    playerName = prompt(" Como é o seu nome ?")
+    playerName = prompt(" Como é o seu nome ?");
 }
 
 const pauseGame = () => {
-    alert('game pausado')
+    alert('game pausado');
 }
