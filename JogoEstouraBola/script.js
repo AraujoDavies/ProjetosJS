@@ -7,8 +7,8 @@ let gamePausado = false; // pergunta: o jogo está pausado ?
 document.querySelector('#start--game').addEventListener('click', (e)=>{
     e.target.style.display = 'none';
     getPlayer();
-    alert('Para PAUSAR o game tecle SPACE');
-    start();
+    //alert('Para PAUSAR o game tecle SPACE');
+    selecionaNivel();
 })
 
 document.body.addEventListener('keyup', (t) => {
@@ -17,7 +17,6 @@ document.body.addEventListener('keyup', (t) => {
         pauseGame();
     }
 })
-
 
 //functions 
 const addBalao = () => {
@@ -61,13 +60,20 @@ const start = () => {
 }
 
 const getPlayer = () => {
-    playerName = prompt(" Como é o seu nome ?");
+    //playerName = prompt(" Como é o seu nome ?"); 
+    //VALIDAR ESTE CAMPO
 }
 
 const pauseGame = () => {
     if (!gamePausado) {
         gamePausado = true;
     }else { gamePausado = false;} 
-    
+}
 
+const selecionaNivel = () => {
+    let nivelHTML = document.querySelector('#niveis').cloneNode(true);
+
+    document.querySelector('.tela--game').append(nivelHTML)
+
+    console.log(nivelHTML)
 }

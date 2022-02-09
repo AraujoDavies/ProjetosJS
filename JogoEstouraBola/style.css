@@ -61,3 +61,28 @@ aside {
     font-size: 120px;
     font-weight: bold;
 }
+#niveis{
+    color: #fff;
+    font-size: 50px;
+    margin-left: 20px;
+}
+#niveis button{
+    font-size: 20px;
+    width: 90%;
+    background-color: brown;
+    color: #fff;
+    margin-bottom: 10px;
+}
+#niveis button span{
+    font-size: 10px;
+}
+#niveis h4{
+    margin: 0s;
+}
+.models{
+    display: none;
+}
+#niveis .niveis-btn {
+    display: flex;
+    flex-direction: column;
+}
