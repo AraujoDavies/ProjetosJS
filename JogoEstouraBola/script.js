@@ -1,6 +1,7 @@
 //var
 let playerName = '';
 let bolasEstouradas = 0;
+let gamePausado = false; // pergunta: o jogo está pausado ?
 
 //events
 document.querySelector('#start--game').addEventListener('click', (e)=>{
@@ -37,15 +38,22 @@ const addBalao = () => {
     bola.setAttribute('style', 'left: ' + p1 +'px; top: ' + p2 + 'px;');
     bola.setAttribute('onclick' , 'estourar(this)');
     
-    gameArea.append(bola);
-    
+    if (!gamePausado){
+        document.querySelector('#pause').innerHTML = 'SPACE para PAUSAR'
+        gameArea.append(bola);
+    } else {
+        //mostrar mesngagem de PAUSADO
+        document.querySelector('#pause').innerHTML = 'GAME PAUSADO'
+    }
+
 }
 
 const estourar = (obj) => {
-    document.querySelector('.tela--game').removeChild(obj);
-    
-    bolasEstouradas++;
-    document.querySelector('#contador span').innerHTML = bolasEstouradas;
+    if (!gamePausado){
+        document.querySelector('.tela--game').removeChild(obj);   
+        bolasEstouradas++;
+        document.querySelector('#contador span').innerHTML = bolasEstouradas;
+    }
 }
 
 const start = () => {
@@ -57,5 +65,9 @@ const getPlayer = () => {
 }
 
 const pauseGame = () => {
-    alert('game pausado');
+    if (!gamePausado) {
+        gamePausado = true;
+    }else { gamePausado = false;} 
+    
+
 }
