@@ -1,2 +1,3 @@
 # ProjetosJS
-Projetos em JavaScript feito em aulas do curso... 
+
+Alguns Projetos em JS
