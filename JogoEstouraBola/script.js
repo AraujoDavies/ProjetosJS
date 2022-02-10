@@ -3,6 +3,9 @@ let playerName = '';
 let bolasEstouradas = 0;
 let gamePausado = false; // pergunta: o jogo está pausado ?
 let nivelHTML = document.querySelector('#niveis').cloneNode(true);
+let gameOver = false;
+let bolasEmTela = 0;
+let interval; //variavel do set Interval
 
 //events
 document.querySelector('#start--game').addEventListener('click', (e)=>{
@@ -25,6 +28,7 @@ document.body.addEventListener('keyup', (t) => {
 const addBalao = () => {
     let bola = document.createElement('div');
     bola.setAttribute('class', 'bola');
+    bola.setAttribute('okClick', 'rigth');
     let gameArea = document.querySelector('.tela--game');
 
     let widthGame = gameArea.clientWidth - 50; //menos largura da bola
@@ -48,6 +52,8 @@ const addBalao = () => {
         document.querySelector('#pause').innerHTML = 'GAME PAUSADO'
     }
 
+    bolasEmTela++
+    casesGameOver();
 }
 
 const estourar = (obj) => {
@@ -59,7 +65,7 @@ const estourar = (obj) => {
 }
 
 const start = (velocidade) => {
-    setInterval(addBalao, velocidade);
+    interval = setInterval(addBalao, velocidade);
 }
 
 const getPlayer = () => {
@@ -83,16 +89,19 @@ const selecionaNivel = () => {
             switch (iNivel){
                 case "0":
                     mostrarAside();
-                    setTimeout( () => {start(1250)}, 1000)
+                    setTimeout( () => {start(1250)}, 1000);
                 break;
                 case "1":
-                    start(1000);
+                    mostrarAside();
+                    setTimeout( () => {start(1000)}, 1000);
                 break;
                 case "2":
-                    start(800);
+                    mostrarAside();
+                    setTimeout( () => {start(600)}, 1000);
                 break;
                 case "3":
-                    start(500);
+                    mostrarAside();
+                    setTimeout( () => {start(300)}, 1000);
                 break;
             }
         })
@@ -103,3 +112,25 @@ const mostrarAside = () => {
     document.querySelector('aside').style.width = "20vw";
     document.querySelector('.tela--game').removeChild(nivelHTML);
 }
+
+const casesGameOver = () => {
+    document.querySelector('.tela--game').addEventListener('click', (e)=>{
+        let clickValidation = e.target.getAttribute('okClick')
+        
+        if (clickValidation !== "rigth"){
+                gameOver = true;
+        }
+    })
+
+    if (bolasEmTela >= 50){
+        gameOver = true;
+    }
+
+    if(gameOver){
+        clearInterval(interval);
+        alert('GAME OVER!');
+        gameOver = false;
+        document.querySelector('#start--game').style.display = "relative";
+    }
+}
+casesGameOver();

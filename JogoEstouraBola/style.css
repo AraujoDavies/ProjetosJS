@@ -80,6 +80,9 @@ aside {
 #niveis h4{
     margin: 0s;
 }
+#niveis p{
+    font-size: 20px;
+}
 .models{
     display: none;
 }
