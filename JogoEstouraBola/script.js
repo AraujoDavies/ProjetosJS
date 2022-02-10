@@ -2,13 +2,14 @@
 let playerName = '';
 let bolasEstouradas = 0;
 let gamePausado = false; // pergunta: o jogo está pausado ?
+let nivelHTML = document.querySelector('#niveis').cloneNode(true);
 
 //events
 document.querySelector('#start--game').addEventListener('click', (e)=>{
     e.target.style.display = 'none';
-    getPlayer();
     //alert('Para PAUSAR o game tecle SPACE');
     selecionaNivel();
+    
 })
 
 document.body.addEventListener('keyup', (t) => {
@@ -17,6 +18,8 @@ document.body.addEventListener('keyup', (t) => {
         pauseGame();
     }
 })
+
+
 
 //functions 
 const addBalao = () => {
@@ -55,13 +58,14 @@ const estourar = (obj) => {
     }
 }
 
-const start = () => {
-    setInterval(addBalao, 100);
+const start = (velocidade) => {
+    setInterval(addBalao, velocidade);
 }
 
 const getPlayer = () => {
     //playerName = prompt(" Como é o seu nome ?"); 
     //VALIDAR ESTE CAMPO
+    
 }
 
 const pauseGame = () => {
@@ -71,9 +75,27 @@ const pauseGame = () => {
 }
 
 const selecionaNivel = () => {
-    let nivelHTML = document.querySelector('#niveis').cloneNode(true);
-
-    document.querySelector('.tela--game').append(nivelHTML)
-
-    console.log(nivelHTML)
+    document.querySelector('.tela--game').append(nivelHTML);
+    
+    document.querySelectorAll('.choose--nivel').forEach(item => {
+        item.addEventListener('click', (item) =>{ 
+            let iNivel = item.target.getAttribute('data-nivel');
+            switch (iNivel){
+                case "0":
+                    document.querySelector('aside').style.width = "20vw";
+                    document.querySelector('.tela--game').removeChild(nivelHTML);
+                    setTimeout( () => {  start(10)}, 1000)
+                break;
+                case "1":
+                    start(1000);
+                break;
+                case "2":
+                    start(800);
+                break;
+                case "3":
+                    start(500);
+                break;
+            }
+        })
+    })
 }
