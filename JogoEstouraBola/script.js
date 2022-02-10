@@ -82,9 +82,8 @@ const selecionaNivel = () => {
             let iNivel = item.target.getAttribute('data-nivel');
             switch (iNivel){
                 case "0":
-                    document.querySelector('aside').style.width = "20vw";
-                    document.querySelector('.tela--game').removeChild(nivelHTML);
-                    setTimeout( () => {  start(10)}, 1000)
+                    mostrarAside();
+                    setTimeout( () => {start(1250)}, 1000)
                 break;
                 case "1":
                     start(1000);
@@ -98,4 +97,9 @@ const selecionaNivel = () => {
             }
         })
     })
+}
+
+const mostrarAside = () => {
+    document.querySelector('aside').style.width = "20vw";
+    document.querySelector('.tela--game').removeChild(nivelHTML);
 }
