@@ -45,11 +45,11 @@ const addBalao = () => {
     bola.setAttribute('onclick' , 'estourar(this)');
     
     if (!gamePausado){
-        document.querySelector('#pause').innerHTML = 'SPACE para PAUSAR'
+        document.querySelector('#pause').innerHTML = 'SPACE para PAUSAR';
         gameArea.append(bola);
     } else {
         //mostrar mesngagem de PAUSADO
-        document.querySelector('#pause').innerHTML = 'GAME PAUSADO'
+        document.querySelector('#pause').innerHTML = 'GAME PAUSADO';
     }
 
     bolasEmTela++
@@ -71,7 +71,6 @@ const start = (velocidade) => {
 const getPlayer = () => {
     //playerName = prompt(" Como é o seu nome ?"); 
     //VALIDAR ESTE CAMPO
-    
 }
 
 const pauseGame = () => {
@@ -88,19 +87,19 @@ const selecionaNivel = () => {
             let iNivel = item.target.getAttribute('data-nivel');
             switch (iNivel){
                 case "0":
-                    mostrarAside();
+                    removeNiveis();
                     setTimeout( () => {start(1250)}, 1000);
                 break;
                 case "1":
-                    mostrarAside();
+                    removeNiveis();
                     setTimeout( () => {start(1000)}, 1000);
                 break;
                 case "2":
-                    mostrarAside();
+                    removeNiveis();
                     setTimeout( () => {start(600)}, 1000);
                 break;
                 case "3":
-                    mostrarAside();
+                    removeNiveis();
                     setTimeout( () => {start(300)}, 1000);
                 break;
             }
@@ -108,8 +107,7 @@ const selecionaNivel = () => {
     })
 }
 
-const mostrarAside = () => {
-    document.querySelector('aside').style.width = "20vw";
+const removeNiveis = () => {
     document.querySelector('.tela--game').removeChild(nivelHTML);
 }
 
@@ -129,8 +127,18 @@ const casesGameOver = () => {
     if(gameOver){
         clearInterval(interval);
         alert('GAME OVER!');
-        gameOver = false;
-        document.querySelector('#start--game').style.display = "relative";
+        getPlayer();
+        resetGame();
     }
 }
 casesGameOver();
+
+const resetGame = () => {
+    gameOver = false;
+    document.querySelector('#start--game').style.display = "flex";
+    document.querySelector('.tela--game').innerHTML = '';
+    document.querySelector('#pause').innerHTML = '';
+    document.querySelector('#contador span').innerHTML = '--';
+    bolasEmTela = 0;
+    bolasEstouradas = 0;
+}
