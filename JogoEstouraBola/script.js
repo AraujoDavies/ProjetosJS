@@ -48,9 +48,7 @@ const addBalao = () => {
         //mostrar mesngagem de PAUSADO
         document.querySelector('#pause').innerHTML = 'GAME PAUSADO';
     }
-
     bolasEmTela++
-    casesGameOver();
 }
 
 const estourar = (obj) => {
@@ -68,7 +66,13 @@ const start = (velocidade) => {
 const getPlayer = () => {
     playerName = ''
     playerName = prompt(" Como é o seu nome ?"); 
-    //VALIDAR ESTE CAMPO
+    validarNome();
+}
+
+const validarNome = () => {
+    if (playerName.length > 10 || playerName.length < 3){
+        getPlayer();
+    } else alert('Seu nome foi registrado na lista de recordes :D'); registrarDados()
 }
 
 const pauseGame = () => {
@@ -119,26 +123,27 @@ const removeNiveis = () => {
 
 const casesGameOver = () => {
     document.querySelector('.tela--game').addEventListener('click', (e)=>{
-        let clickValidation = e.target.getAttribute('okClick')
+        let clickValidation = e.target.getAttribute('okClick');
+        //console.log(clickValidation) SHOW IF THE CLICK IS BAD
         if (clickValidation == "bad"){
             if (inGame){
                 gameOver = true;
             }
         }
         clickValidation = '';
+
+        if (bolasEmTela >= 50){
+            gameOver = true;
+        }
+
+        if(gameOver){
+            clearInterval(interval);
+            alert('GAME OVER!');
+            getPlayer();
+            isGameInPlay();
+            resetGame();
+        }
     })
-
-    if (bolasEmTela >= 50){
-        gameOver = true;
-    }
-
-    if(gameOver){
-        clearInterval(interval);
-        alert('GAME OVER!');
-        getPlayer();
-        isGameInPlay();
-        resetGame();
-    }
 }
 casesGameOver();
 
