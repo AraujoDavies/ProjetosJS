@@ -13,21 +13,22 @@
         <div id="niveis">
             <h3> Regras do Game </h3>
     
-            <p> **O jogo acaba quando a tela for preenchida por <b style="color:rgb(29, 247, 255)"><u>50 balões</u></b>
+            <p> **O jogo acaba quando a tela for preenchida por <b style="color: greenyellow"><u>50 balões</u></b>
             <br> **O jogo acaba quando o clique não pega a bolão</p>
             
             <nivel style="color: #ccc; text-align: center;">Selecione o Nível: </nivel>
             
             <br>
             <div class="niveis-btn">
-                <button class="choose--nivel" okClick="rigth" data-nivel="0">Café com Leite <span data-nivel="0">-1.25 sec-</span></button>
-                <button class="choose--nivel" okClick="rigth" data-nivel="1">Médio <span data-nivel="1">-1 sec-</span></button>
-                <button class="choose--nivel" okClick="rigth" data-nivel="2">Difícil <span data-nivel="2">-0.6 sec-</span></button>
-                <button class="choose--nivel" okClick="rigth" data-nivel="3">Impossível <span data-nivel="3">-0.3 sec-</span></button>
+                <button class="choose--nivel" data-nivel="0">Café com Leite <span data-nivel="0">-1.25 sec-</span></button>
+                <button class="choose--nivel" data-nivel="1">Médio <span data-nivel="1">-1 sec-</span></button>
+                <button class="choose--nivel" data-nivel="2">Difícil <span data-nivel="2">-0.6 sec-</span></button>
+                <button class="choose--nivel" data-nivel="3">Impossível <span data-nivel="3">-0.3 sec-</span></button>
             </div>
 
         </div>
     </div>
+    
     <button id = "start--game"> Start Game</button>
 
     <aside>
@@ -35,28 +36,12 @@
         <div id="recorde">
             <!-- fazer tabela -->
         </div>
-    </div>
     </aside>
 
-    <div class="tela--game">
+    <div class="tela--game" okClick="bad">
 
     </div>
 
-    <div id="niveis">    
-        <p> **O jogo acaba quando a tela for preenchida por <b style="color:rgb(29, 247, 255)"><u>50 balões</u></b>
-        <br> **O jogo acaba quando o clique não pega a bolão</p>
-        
-        <nivel style="color: #ccc; text-align: center;">Selecione o Nível: </nivel>
-        
-        <br>
-        <div class="niveis-btn">
-            <button class="choose--nivel" okClick="rigth" data-nivel="0">Café com Leite <span data-nivel="0">-1.25 sec-</span></button>
-            <button class="choose--nivel" okClick="rigth" data-nivel="1">Médio <span data-nivel="1">-1 sec-</span></button>
-            <button class="choose--nivel" okClick="rigth" data-nivel="2">Difícil <span data-nivel="2">-0.6 sec-</span></button>
-            <button class="choose--nivel" okClick="rigth" data-nivel="3">Impossível <span data-nivel="3">-0.3 sec-</span></button>
-        </div>
-
-    </div>
     <!-- *adicionar Play/Pause game--> 
     <!-- *pegar nome do jogador -->
     <!-- *adicionar contador de bolas estouradas-->
@@ -65,8 +50,8 @@
     <!-- *adicionar gameOver ao clicar fora da bola-->
     <!-- *adicionar gameOver ao ter 50 baloes na tela-->
     <!-- *Zerar o game ao ocorrer game over e voltar pro inicio-->
+    <!-- *corrigir bug de clicar na .tela--game antes do jogo-->
 
-    <!-- corrigir bug de clicar na .tela--game antes do jogo-->
     <!-- validar nome do jogador -->
     <!-- 
     adicionar lista de recorde + filtro 

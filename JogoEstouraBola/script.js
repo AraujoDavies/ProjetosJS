@@ -6,13 +6,14 @@ let nivelHTML = document.querySelector('#niveis').cloneNode(true);
 let gameOver = false;
 let bolasEmTela = 0;
 let interval; //variavel do set Interval
+let inGame = false; //var control click in bad area
 
 //events
 document.querySelector('#start--game').addEventListener('click', (e)=>{
     e.target.style.display = 'none';
     //alert('Para PAUSAR o game tecle SPACE');
     selecionaNivel();
-    
+    isGameInPlay();
 })
 
 document.body.addEventListener('keyup', (t) => {
@@ -22,13 +23,10 @@ document.body.addEventListener('keyup', (t) => {
     }
 })
 
-
-
 //functions 
 const addBalao = () => {
     let bola = document.createElement('div');
     bola.setAttribute('class', 'bola');
-    bola.setAttribute('okClick', 'rigth');
     let gameArea = document.querySelector('.tela--game');
 
     let widthGame = gameArea.clientWidth - 50; //menos largura da bola
@@ -114,10 +112,12 @@ const removeNiveis = () => {
 const casesGameOver = () => {
     document.querySelector('.tela--game').addEventListener('click', (e)=>{
         let clickValidation = e.target.getAttribute('okClick')
-        
-        if (clickValidation !== "rigth"){
+        if (clickValidation == "bad"){
+            if (inGame){
                 gameOver = true;
+            }
         }
+        clickValidation = '';
     })
 
     if (bolasEmTela >= 50){
@@ -128,10 +128,17 @@ const casesGameOver = () => {
         clearInterval(interval);
         alert('GAME OVER!');
         getPlayer();
+        isGameInPlay();
         resetGame();
     }
 }
 casesGameOver();
+
+const isGameInPlay = () => {
+    if (inGame) {
+        inGame = false;
+    } else inGame = true;
+}
 
 const resetGame = () => {
     gameOver = false;
