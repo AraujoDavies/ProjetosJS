@@ -69,24 +69,15 @@ aside {
     width: 20vw;
 }
 #niveis{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
     border-radius: 10px;
-    flex-direction: column;
     color: #fff;
     font-size: 50px;
-    margin: 10vh 10vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    margin: 0 10% 10% 0;
 }
 #niveis button{
     font-size: 20px;
     width: 100%;
+    margin-left: 5%;
     background-color: brown;
     color: #fff;
     margin-bottom: 10px;
