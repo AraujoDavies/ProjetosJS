@@ -13,7 +13,6 @@ document.querySelector('#start--game').addEventListener('click', (e)=>{
     e.target.style.display = 'none';
     //alert('Para PAUSAR o game tecle SPACE');
     selecionaNivel();
-    isGameInPlay();
 })
 
 document.body.addEventListener('keyup', (t) => {
@@ -67,14 +66,19 @@ const start = (velocidade) => {
 }
 
 const getPlayer = () => {
-    //playerName = prompt(" Como é o seu nome ?"); 
+    playerName = ''
+    playerName = prompt(" Como é o seu nome ?"); 
     //VALIDAR ESTE CAMPO
 }
 
 const pauseGame = () => {
     if (!gamePausado) {
         gamePausado = true;
-    }else { gamePausado = false;} 
+        inGame = false;
+    }else { 
+        gamePausado = false;
+        inGame = true;
+    } 
 }
 
 const selecionaNivel = () => {
@@ -86,18 +90,22 @@ const selecionaNivel = () => {
             switch (iNivel){
                 case "0":
                     removeNiveis();
+                    isGameInPlay();
                     setTimeout( () => {start(1250)}, 1000);
                 break;
                 case "1":
                     removeNiveis();
+                    isGameInPlay();
                     setTimeout( () => {start(1000)}, 1000);
                 break;
                 case "2":
                     removeNiveis();
+                    isGameInPlay();
                     setTimeout( () => {start(600)}, 1000);
                 break;
                 case "3":
                     removeNiveis();
+                    isGameInPlay();
                     setTimeout( () => {start(300)}, 1000);
                 break;
             }
