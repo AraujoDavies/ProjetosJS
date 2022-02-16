@@ -7,6 +7,7 @@ let gameOver = false;
 let bolasEmTela = 0;
 let interval; //variavel do set Interval
 let inGame = false; //var control click in bad area
+let iNivel;
 
 //events
 document.querySelector('#start--game').addEventListener('click', (e)=>{
@@ -37,42 +38,76 @@ const addBalao = () => {
     let cor = ['red', 'green', 'yellow', 'blue' ,'orange', 'pink'];
     let iCor = Math.floor(Math.random() * 6)
 
-    bola.classList.add(cor[iCor]);
-    bola.setAttribute('style', 'left: ' + p1 +'px; top: ' + p2 + 'px;');
-    bola.setAttribute('onclick' , 'estourar(this)');
-    
-    if (!gamePausado){
-        document.querySelector('#pause').innerHTML = 'SPACE para PAUSAR';
-        gameArea.append(bola);
-    } else {
-        //mostrar mesngagem de PAUSADO
-        document.querySelector('#pause').innerHTML = 'GAME PAUSADO';
+    if (inGame) {    
+        bola.classList.add(cor[iCor]);
+        bola.setAttribute('style', 'left: ' + p1 +'px; top: ' + p2 + 'px;');
+        bola.setAttribute('onclick' , 'estourar(this)');
+        
+        if (!gamePausado){
+            document.querySelector('#pause').innerHTML = 'SPACE para PAUSAR';
+            gameArea.append(bola);
+        } else {
+            //mostrar mesngagem de PAUSADO
+            document.querySelector('#pause').innerHTML = 'GAME PAUSADO';
+        }
+        bolasEmTela++
     }
-    bolasEmTela++
 }
 
 const estourar = (obj) => {
-    if (!gamePausado){
-        document.querySelector('.tela--game').removeChild(obj);   
-        bolasEstouradas++;
-        document.querySelector('#contador span').innerHTML = bolasEstouradas;
+    if (inGame) {        
+        if (!gamePausado){
+            document.querySelector('.tela--game').removeChild(obj);   
+            bolasEstouradas++;
+            document.querySelector('#contador span').innerHTML = bolasEstouradas;
+        }
     }
 }
 
 const start = (velocidade) => {
-    interval = setInterval(addBalao, velocidade);
+    if (inGame) {
+        interval = setInterval(addBalao, velocidade);
+    } 
 }
 
 const getPlayer = () => {
+    inGame = false;
     playerName = ''
     playerName = prompt(" Como é o seu nome ?"); 
     validarNome();
 }
 
 const validarNome = () => {
-    if (playerName.length > 10 || playerName.length < 3){
+    if (playerName.length > 10 || playerName.length < 3 || playerName == '' ){
         getPlayer();
-    } else alert('Seu nome foi registrado na lista de recordes :D'); registrarDados()
+    } else{  alert('Seu nome foi registrado na lista de recordes :D'); registrarDados();}
+}
+
+const registrarDados = () => {
+    switch (iNivel) {
+        case "0": 
+            iNivel = "Fácil";
+        break;
+        case "1": 
+            iNivel = "Normal";
+        break;
+        case "2": 
+            iNivel = "Hard";
+        break;
+        case "3": 
+            iNivel = "Impossible";
+        break;
+    }
+
+    recordes.push({
+        nome: playerName,
+        nivel: iNivel,
+        baloesEstourados: bolasEstouradas,
+    })
+
+    console.log(recordes)
+
+    resetGame();
 }
 
 const pauseGame = () => {
@@ -86,11 +121,11 @@ const pauseGame = () => {
 }
 
 const selecionaNivel = () => {
-    document.querySelector('.tela--game').append(nivelHTML);
+    document.querySelector('.tela--game').appendChild(nivelHTML);
     
     document.querySelectorAll('.choose--nivel').forEach(item => {
         item.addEventListener('click', (item) =>{ 
-            let iNivel = item.target.getAttribute('data-nivel');
+            iNivel = item.target.getAttribute('data-nivel');
             switch (iNivel){
                 case "0":
                     removeNiveis();
@@ -139,9 +174,8 @@ const casesGameOver = () => {
         if(gameOver){
             clearInterval(interval);
             alert('GAME OVER!');
-            getPlayer();
             isGameInPlay();
-            resetGame();
+            getPlayer();
         }
     })
 }
@@ -149,7 +183,7 @@ casesGameOver();
 
 const isGameInPlay = () => {
     if (inGame) {
-        inGame = false;
+        inGame = false
     } else inGame = true;
 }
 
