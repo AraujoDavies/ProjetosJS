@@ -99,9 +99,14 @@ aside {
     display: flex;
     flex-direction: column;
 }
+#recorde{
+    color: #fff;
+}
+#recorde h4{
+    text-align: center;
+}
 table {
     width: 100%;
-    color: #fff;
 }
 tbody{
     text-align: center;

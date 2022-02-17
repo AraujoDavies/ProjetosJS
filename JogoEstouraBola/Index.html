@@ -25,8 +25,16 @@
                 <button class="choose--nivel" data-nivel="2">Difícil <span data-nivel="2">-0.6 sec-</span></button>
                 <button class="choose--nivel" data-nivel="3">Impossível <span data-nivel="3">-0.3 sec-</span></button>
             </div>
-
         </div>
+    
+        <table>
+            <tr id="tr">
+                <td class="p"> 1° </td>
+                <td class="name">Fulano</td>
+                <td class="score">50</td>
+            </tr>
+        </table>
+        
     </div>
     
     <button id = "start--game"> Start Game</button>
@@ -34,6 +42,7 @@
     <aside>
         <div id="contador"> BOLAS ESTOURADAS: <br> <span> -- </span> <br> <div id="pause">  </div> </div>
         <div id="recorde">
+            <h4>Recordes (TOP 10)</h4 >
             <table>
                 <thead>
                     <tr>
@@ -42,57 +51,8 @@
                         <th> Pontos +<br> Nivel </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>1°</td>
-                        <td>Davies</td>
-                        <td>200</td>
-                    </tr>
+                <tbody id="tbody">
+
                 </tbody>
             </table>
         </div>
@@ -114,12 +74,10 @@
     <!-- *validar nome do jogador -->
     <!-- *armazenar em um objeto Nome, bola estouradas e nivel da jogatina-->
     <!-- *corrigir bug no momento q cancela o envio do prompt e consegue estourar bolas-->
+    <!-- *criar Lista no HTML-->
+    <!-- *adicionar lista de recorde - modelo de lista Position | Name player (max 10carac.) | pontos -->
     
-    <!-- criar Lista no HTML-->
-    <!-- 
-    adicionar lista de recorde + filtro 
-    modelo de lista Position | Name player (max 10carac.) | nivel | pontos
-    -->
+    <!-- corrigir bug quando passa de 50 bolas em tela-->
     <!-- add objeto recorde em um localstorage-->
     <script src="recordes.js"></script>
     <script src="script.js"></script>

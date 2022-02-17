@@ -92,10 +92,10 @@ const registrarDados = () => {
             iNivel = "Normal";
         break;
         case "2": 
-            iNivel = "Hard";
+            iNivel = "Difícil";
         break;
         case "3": 
-            iNivel = "Impossible";
+            iNivel = "Impossível";
         break;
     }
 
@@ -107,6 +107,7 @@ const registrarDados = () => {
 
     console.log(recordes)
 
+    listarRecordes();
     resetGame();
 }
 
@@ -167,7 +168,7 @@ const casesGameOver = () => {
         }
         clickValidation = '';
 
-        if (bolasEmTela >= 50){
+        if (bolasEmTela > 50){
             gameOver = true;
         }
 
@@ -195,4 +196,41 @@ const resetGame = () => {
     document.querySelector('#contador span').innerHTML = '--';
     bolasEmTela = 0;
     bolasEstouradas = 0;
+}
+
+const listarRecordes = () =>{
+    //criando novo array para modificar
+    let newRecords = [];
+    for (let i=0; i<recordes.length; i++){
+        newRecords.push(recordes[i]);
+    }
+    
+    //Ordenando o array na ordem correta
+    newRecords.sort(compare)
+
+    document.querySelector('#tbody').innerHTML = '';
+    newRecords.map((item, index) => {            
+
+            let modelTr = document.querySelector('#tr').cloneNode(true) //clonando estrutura html para inserir após colocar dados
+            modelTr.setAttribute('colocacao', index);
+            let verify = modelTr.getAttribute('colocacao');
+
+            modelTr.querySelector('.p').innerHTML = `${index+1}°`;
+            modelTr.querySelector('.name').innerHTML = item.nome;
+            modelTr.querySelector('.score').innerHTML = item.baloesEstourados;
+
+            document.querySelector('#tbody').append(modelTr);
+
+            if (verify > 9){
+                modelTr.classList.add('models')
+            }
+    })
+}
+listarRecordes();
+
+//função que auxilia a ordenar o novo array
+function compare(a, b){
+    if (a.baloesEstourados < b.baloesEstourados) return 1;
+    if (a.baloesEstourados > b.baloesEstourados) return -1;
+    return 0;
 }
