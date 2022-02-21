@@ -25,6 +25,9 @@ document.body.addEventListener('keyup', (t) => {
 
 //functions 
 const addBalao = () => {
+    casesGameOver();
+    attBolasTela();
+    
     let bola = document.createElement('div');
     bola.setAttribute('class', 'bola');
     let gameArea = document.querySelector('.tela--game');
@@ -50,7 +53,7 @@ const addBalao = () => {
             //mostrar mesngagem de PAUSADO
             document.querySelector('#pause').innerHTML = 'GAME PAUSADO';
         }
-        bolasEmTela++
+        bolasEmTela = document.querySelectorAll('.bola').length
     }
 }
 
@@ -61,6 +64,7 @@ const estourar = (obj) => {
             bolasEstouradas++;
             document.querySelector('#contador span').innerHTML = bolasEstouradas;
         }
+        attBolasTela();
     }
 }
 
@@ -80,32 +84,34 @@ const getPlayer = () => {
 const validarNome = () => {
     if (playerName.length > 10 || playerName.length < 3 || playerName == '' ){
         getPlayer();
-    } else{  alert('Seu nome foi registrado na lista de recordes :D'); registrarDados();}
+    } else{ registrarDados();}
 }
 
 const registrarDados = () => {
-    switch (iNivel) {
-        case "0": 
-            iNivel = "Fácil";
-        break;
-        case "1": 
-            iNivel = "Normal";
-        break;
-        case "2": 
-            iNivel = "Difícil";
-        break;
-        case "3": 
-            iNivel = "Impossível";
-        break;
+    if (bolasEstouradas > 0){
+        switch (iNivel) {
+            case "0": 
+                iNivel = "Fácil";
+            break;
+            case "1": 
+                iNivel = "Normal";
+            break;
+            case "2": 
+                iNivel = "Difícil";
+            break;
+            case "3": 
+                iNivel = "Impossível";
+            break;
+        }
+        recordes.push({
+            nome: playerName,
+            nivel: iNivel,
+            baloesEstourados: bolasEstouradas,
+        })
+        alert('Seu nome foi registrado na lista de recordes :D');
+    } else {
+        alert(`${playerName} estoure pelo menos um balão! `)
     }
-
-    recordes.push({
-        nome: playerName,
-        nivel: iNivel,
-        baloesEstourados: bolasEstouradas,
-    })
-
-    console.log(recordes)
 
     listarRecordes();
     resetGame();
@@ -158,6 +164,13 @@ const removeNiveis = () => {
 }
 
 const casesGameOver = () => {
+    
+    clickValidation = '';
+
+    if (bolasEmTela > 15){
+        gameOver = true;
+    }
+
     document.querySelector('.tela--game').addEventListener('click', (e)=>{
         let clickValidation = e.target.getAttribute('okClick');
         //console.log(clickValidation) SHOW IF THE CLICK IS BAD
@@ -166,12 +179,6 @@ const casesGameOver = () => {
                 gameOver = true;
             }
         }
-        clickValidation = '';
-
-        if (bolasEmTela > 50){
-            gameOver = true;
-        }
-
         if(gameOver){
             clearInterval(interval);
             alert('GAME OVER!');
@@ -179,6 +186,14 @@ const casesGameOver = () => {
             getPlayer();
         }
     })
+
+    if(gameOver){
+        clearInterval(interval);
+        alert('GAME OVER!');
+        isGameInPlay();
+        getPlayer();
+    }
+
 }
 casesGameOver();
 
@@ -233,4 +248,9 @@ function compare(a, b){
     if (a.baloesEstourados < b.baloesEstourados) return 1;
     if (a.baloesEstourados > b.baloesEstourados) return -1;
     return 0;
+}
+
+const attBolasTela = () => {
+    document.querySelector('#bolas--tela').innerHTML = '';
+    document.querySelector('#bolas--tela').innerHTML = bolasEmTela;
 }
