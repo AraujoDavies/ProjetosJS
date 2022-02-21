@@ -26,7 +26,6 @@ document.body.addEventListener('keyup', (t) => {
 //functions 
 const addBalao = () => {
     casesGameOver();
-    attBolasTela();
     
     let bola = document.createElement('div');
     bola.setAttribute('class', 'bola');
@@ -54,6 +53,7 @@ const addBalao = () => {
             document.querySelector('#pause').innerHTML = 'GAME PAUSADO';
         }
         bolasEmTela = document.querySelectorAll('.bola').length
+        attBolasTela();
     }
 }
 
@@ -211,6 +211,7 @@ const resetGame = () => {
     document.querySelector('#contador span').innerHTML = '--';
     bolasEmTela = 0;
     bolasEstouradas = 0;
+    document.querySelector('#bolas--tela').innerHTML = '00'
 }
 
 const listarRecordes = () =>{
@@ -251,6 +252,7 @@ function compare(a, b){
 }
 
 const attBolasTela = () => {
-    document.querySelector('#bolas--tela').innerHTML = '';
+    document.querySelector('#bolas--tela').innerHTML = ''
     document.querySelector('#bolas--tela').innerHTML = bolasEmTela;
 }
+
