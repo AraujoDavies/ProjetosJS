@@ -1,0 +1,186 @@
+:root{
+    --quadrado: 100px
+}
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+/*Classes principais*/
+.area{
+    display: flex;
+    height: 100vh;
+    width: 700px;
+}
+.painel-info{
+    width: 200px;
+    background-color: rgb(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #ccc;
+}
+
+/*area para jogada #*/
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.linha{
+    display: flex;
+}
+.area-jogada{
+    width: var(--quadrado);
+    height: var(--quadrado);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    /*evitar que o usuário selecione o texto (X ou O, no caso)*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+.area-jogada:hover{
+    background-color: rgb(0, 0, 0, 0.03);
+    cursor: pointer;
+}
+
+/*Linhas do jogo # */
+.b {
+    border-bottom: 2px solid black;
+}
+.d{
+    border-right: 2px solid black;
+}
+
+/*painel informativo*/
+.btns{
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 80px;
+    cursor: pointer;
+}
+.vez{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.vez--id{
+    font-size: 50px;
+    font-weight: bold;
+    background-color: #ccc;
+    color: #ff0000;
+}
+.x{
+    color: #00f;
+}
+.o{
+    color: #f00;
+}
+/*Resultado do jogo piscando*/
+@keyframes pisca{
+    0% { opacity: 0.8}
+    50% { opacity: 0.1}
+    100% { opacity: 0.9}
+}
+.pisca{
+    animation-name: pisca;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+/*area que abre com resultado*/
+.resultado-area{
+    position: fixed;
+    width: 100vw;
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all ease .5s;
+}
+.resultado--area{
+    position: fixed;
+    height: 45%;
+    width: 35%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(53, 143, 245);
+    border: 1px solid rgb(151, 151, 151);
+    flex-direction: column;
+}
+.resultado{
+    display: block;
+    background-color: #ff0000;
+    color: #fff;
+    margin-top: 35px;
+    font-size: 50px
+}
+h2{ color: #fff}
+
+/*Detalhes de responsividade*/
+@media (max-width: 510px){
+    body{
+        background-color: #ccc;
+    }
+    .area{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 100vw;
+    }
+    .painel-info{
+        width: 100%;
+    }
+    .btns{
+        padding-top: 35px;
+        padding-bottom: 35px;
+        display: flex;
+        justify-content: center;
+    }
+    .game {
+        padding-top: 50px;
+    }
+    .resultado--area{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(53, 143, 245);
+        border: 1px solid rgb(151, 151, 151);
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 280px){
+    :root{
+        --quadrado: 80px;
+    }
+}

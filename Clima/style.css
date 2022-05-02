@@ -1,0 +1,250 @@
+body{
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+/*climas das cidades do topo do site*/
+header{
+    display: flex;
+    width: 100%;
+    background-color: #000;
+}
+.nav--locais{
+    display: flex;
+    height: inherit;
+    width: 100%;
+}
+.br-city{
+    height: inherit;
+    border: 4px dotted #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    flex: 1;
+    background-color: rgba(95, 95, 95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bolder;
+    color: #fff;
+}
+.city{
+    height: inherit;
+    border: 4px dotted #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    flex: 1;
+    background-color: rgba(95, 95, 95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bolder;
+    color: #fff;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.left-img{
+    margin-right: 10px;
+}
+.left-img img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.rightC{
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: normal;
+    width: 50px;
+}
+.br-city-info{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.br-city h2{
+    margin: 5px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.br-city-info .right{
+    font-size: 14px;
+    padding-right: 20px;
+}
+.br-city-info .left{
+    padding: 0 20px;
+}
+.min--max{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 15px;
+}
+.max{
+    font-size: 25px;
+    color: rgb(248, 113, 113);
+}
+.min{
+    font-size: 14px;
+    color: rgb(89, 174, 189);
+}
+/*campo de busca*/
+section{
+    margin-top: 5px ;
+    display: flex;
+    justify-content: center;
+}
+.search{
+    border-radius: 5px;
+    height: auto;
+    width: 35vw;
+    margin: 5px;
+}
+.input{
+    margin: 10px;
+    width: 75%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+input{
+    width: 85%;
+    outline: 0;
+    border: none;
+    height: 20px;
+    padding-left: 5px;
+    flex: 1;
+}
+#search{
+    border-radius: 0 5px 5px 0;
+    background-color: #444;
+    color: #ccc;
+    border: #555 solid;
+    padding: 5px;
+    width: 75px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#search:hover{
+    background-color: rgb(0, 0, 122);
+    color: #fff;
+    border: rgb(0, 0, 104) solid;
+}
+.height{
+    height: 250px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+/*textos*/
+p,h2{
+    margin: 0;
+    padding: 0;
+}
+h2{
+    text-transform: uppercase;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+/*bandeiras*/
+.sp:after,.rj,.df:before{
+    background-image: url(img/sp.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+}
+.sp{
+    background-image: url(img/sp.png);
+}
+.rj{
+    background-image: url(img/rj.png);
+}
+.df{
+    background-image: url(img/df.png);
+}
+/*icone de carregamento*/
+@keyframes loading{
+    0%{width: 50px; height: 50px; border-radius: 50%; background-color:aqua}
+    50%{opacity: 0.5; width:50px; height: 50px; border-radius: 50%; background-color:rgb(200, 245, 245)}
+    100%{width:50px; height: 50px; border-radius: 50%; background-color:aqua}
+}
+@keyframes loading2{
+    0%{width: 50px; height: 50px; border-radius: 50%; background-color:rgb(0, 0, 122)}
+    50%{opacity: 0.5; width:50px; height: 50px; border-radius: 50%; background-color:rgb(200, 245, 245)}
+    100%{width:50px; height: 50px; border-radius: 50%; background-color:rgb(0, 0, 122)}
+}
+.load-flex{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: #fff;
+}
+.loading{
+    animation-name: loading;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.loading2{
+    animation-name: loading2;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.dp-none{
+    display: none;
+}
+
+/*botão topo do site*/
+.tema{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.btn-desliza{
+    width: 30px;
+    height: 15px;
+    background-color: #555;
+    border: #444 1px solid;
+    border-radius: 25px;
+    display: flex;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.btn-bola{
+    width: 15px;
+    height: 15px; 
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all ease 1s;
+}
+#white {color: #ccc;}
+#dark {color: #555;}
+
+/*alterando tema black white*/
+.white{background-color: #fff; font-weight: bold;}
+.white header{background-color: #fff;}
+.white .input{border: rgb(0, 0, 104) 1px solid;}
+.white #search{background-color: rgb(0, 0, 122); border: rgb(0, 0, 104); color: #fff;}
+.white #search:hover{background-color: #555; border: #444; color: #fff;}
+.white .city{background-color: #ccc; border: 4px dotted rgb(0, 0, 104);}
+.white .br-city{background-color: #ccc; border: 4px dotted rgb(0, 0, 104);}

@@ -1,0 +1,165 @@
+/*estrutura do Site*/
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;    
+    justify-content: center;   
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    width: 65vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Barra de navegação HEADER*/
+nav,nav a{
+    background-color: #000;
+    color: #fff;
+}
+ul{
+    display: flex;
+}
+li{
+    font-size: 26px;
+    list-style: none;
+    padding: 10px;
+}
+h3{
+    margin: 0;
+    margin-top: 30px;
+    padding: 5px;
+    padding-left: 0;
+}
+a{
+    text-decoration: none;
+}
+/*Estrutura do carousel*/
+.carousel-wid{
+    width: 600px;
+    height: 350px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    background-color: #ccc;
+    overflow: hidden;
+}
+.carousel-img{
+    display: flex;
+    height: 100%;
+    transition: all ease 1.5s;
+    /*width: 3*600 = 1800px; /*width X imgs*/
+}
+.img{
+    height: inherit;
+    width: 600px;
+    background-position: center;
+    background-size: cover;
+}
+.carousel--vazio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+/*Setas do carousel*/
+.absolute{
+    display: absolute;
+}
+.controles{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.setas{
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    font-size: 30px;
+    color: #fff;
+}
+.setas div{
+    background-color: rgb(0,0,0,0.3);
+    padding: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+/* rodapé do carousel */
+.rodape--area{
+    background-color: rgb(0,0,0,0.3);
+    width: 100%;
+    height: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-end;
+    flex-direction: column;
+}
+.details--area{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: space-around;
+    align-items: center;
+}
+.rodape--desc:hover{
+    text-decoration: underline;
+}
+.rodape--title{
+    font-weight: bold;
+    font-size: 16px;
+}
+.rodape--desc{
+    font-size: 12px;
+    margin-top: 5px;
+    align-self: center;
+    text-align: center;
+}
+/*indicador de imagem*/
+.indicador--area{
+    display: flex;
+    margin-bottom: 0px;
+    align-content: flex-end;
+}
+.indicador{
+    width: 70px;
+    height: 4px;
+    background-color: rgba(235, 235, 235, 0.24);
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.on{
+    background-color: rgb(255, 255, 255);
+}
+/*FOOTER*/
+footer{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.git{
+    width: 20%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.git a{
+    color: #000;
+    display: flex;
+}
+.git p{
+    padding-left: 10px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tema">
+        <div id="dark">Dark</div> <div class="btn-desliza"><div class="btn-bola" style="margin-left: 0;"></div></div> <div id="white">White</div>
+    </div>
+    <header>
+        <div class="nav--locais" >
+            <div class="br-city" id="São Paulo">
+                <h2>cidade 1</h2>
+                <div class="flex">
+                    <div class="left">
+                        <div class="br-city-info">
+                            <div class="left-img">                    
+                                
+                            </div>
+                            <div class="right"> 
+                                <p>parcialmente ensolarado</p>
+                            </div>
+                        </div>
+                        <div class="min--max">
+                            <p class="min">min °C</p><p class="max"> máx °C</p>
+                        </div>
+                    </div>
+                    <div class="rightC">
+                        X<sup>°C</sup>
+                    </div>  
+                </div>            
+            </div>
+            <div class="br-city" id="Rio de Janeiro">
+                <h2>cidade 2</h2>
+                <div class="flex">
+                    <div class="left">
+                        <div class="br-city-info">
+                            <div class="left-img"> 
+                                
+                            </div>
+                            <div class="right"> 
+                                <p>parcialmente ensolarado</p>
+                            </div>
+                        </div>
+                        <div class="min--max">
+                            <p class="min">min °C</p><p class="max"> máx °C</p>
+                        </div>
+                    </div>
+                    <div class="rightC">
+                        X<sup>°C</sup>
+                    </div>  
+                </div>            
+            </div>
+            <div class="br-city" id="Distrito Federal">
+                <h2>cidade 3</h2>
+                <div class="flex">
+                    <div class="left">
+                        <div class="br-city-info">
+                            <div class="left-img">
+                                
+                            </div>
+                            <div class="right"> 
+                                <p>parcialmente ensolarado</p>
+                            </div>
+                        </div>
+                        <div class="min--max">
+                            <p class="min">min °C</p><p class="max"> máx °C</p>
+                        </div>
+                    </div>
+                    <div class="rightC">
+                        X<sup>°C</sup>
+                    </div>  
+                </div>            
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="search">
+            <div class="center">
+                <div class="input">
+                    <input type="text" placeholder="Digite uma cidade"> 
+                    <button id="search" type="submit">Pesquisar</button>
+                </div>    
+            </div>
+            
+
+            <div class="busca--api height">
+                <div class="load-flex dp-none"><div></div></div>
+                
+                <div class="city dp-none" id="input--user">
+                    <h2>RIO DE JANEIRO</h2>
+                    <div class="flex">
+                        <div class="left">
+                            <div class="br-city-info">
+                                <div class="left-img">                    
+                                    <!--<img src="" alt="">-->
+                                </div>
+                                <div class="right"> 
+                                    <p class="description">parcialmente ensolarado</p>
+                                </div>
+                            </div>
+                            <div class="min--max">
+                                <p class="min" id="min">min <sup>°C</sup></p>
+                                <br>
+                                <p class="max" id="max"> máx °C</p>
+                            </div>
+                        </div>
+                        <div class="rightC">
+                            X°C
+                        </div>  
+                    </div>            
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Projeto que simula um site de venda de pizzas - sem BD

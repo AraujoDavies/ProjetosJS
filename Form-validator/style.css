@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box; 
+    /*faz os elementos respeitarem o espaço da classe
+     pai faça um teste tirando o box e verá*/
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+.tela{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.tela-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #000;
+}
+.tela-right img{
+    justify-content: center;
+    align-items: center;
+}
+.tela-left{
+    min-width: 400px;
+    background-color: #b6825d;
+    padding: 30px;
+}
+.tela-left h2{
+    display: flex;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.tela-left label{
+    display: block;
+    margin-bottom: 20px;
+}
+
+label input{
+    width: 100%;
+    outline: 0;
+    height: 34px;
+    border-color: transparent;
+    border-radius: 5px;
+}
+input[type="submit"]{
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+input[type="submit"]:hover{
+    cursor: pointer;
+    border: none;
+}
+.erroAviso{
+    color: #ff0000;
+    font-weight: bold;
+}
+.tela-right img{
+    width: 90%;
+}
+@media(max-width:660px){
+    .tela-left{
+        min-width: 100%;
+        background-color: #b6825d;
+        padding: 30px;
+    }
+    .tela{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+}
+@media(max-width:425px){
+    .tela-left{
+        min-width: 100%;
+        background-color: #b6825d;
+        padding: 30px;
+    }
+    .tela{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+}
+@media(max-width:320px){
+    body{
+        height: auto;
+        width: 100vw;
+    }
+    .tela{
+        height: 100%;
+        width: 100%
+    }
+    .tela-left{
+        min-width: 100%;
+        height: 450px;
+        padding: 10px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .tela-right img{
+        height: auto;
+    }
+}

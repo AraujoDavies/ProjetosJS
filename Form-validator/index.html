@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Formulários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tela">
+        <div class="tela-left">
+            <h2 >Validador de Formulários </h2>
+            <form action="teste.php" method="POST" class="valida-form">
+                <label for=""> Seu Nome: <br> <input type="text" name="name" data-rules="required|min=5"></label>
+                <label for=""> Seu E-mail: <br> <input type="text" name="email" data-rules="required|email"></label>
+                <label for=""> Sua Senha: <br> <input type="password" name="password" data-rules="required|min=5"></label>
+                <label for=""> <input type="submit" value="Cadastrar-se"></label>
+                <label for=""> Já tem uma conta ? <a href="#">Faça Login</a></label>
+            </form>
+        </div>
+        <!--------------->
+        <div class="tela-right">
+            <img src="img/logo.jpg" alt="">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

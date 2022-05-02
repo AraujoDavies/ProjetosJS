@@ -1,0 +1,1 @@
+Página simples com Slide destacando as principais notícias

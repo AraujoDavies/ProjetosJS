@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=style.css>
+    <title>Jogo da Velha #</title>
+</head>
+<body>
+    <div class="resultado-area">
+        <div class="resultado--area">
+            <div> <h2 style="margin: 0;">Resultado:</h2></div>
+            <div class="resultado pisca"> X venceu </div>    
+            <div class="btns">
+                <button> Jogar Novamente </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="area">
+        <div class="painel-info">
+            <div class="column">
+                <div class="vez">
+                    <h2> Vez do Jogador: </h2>
+                    <div class="vez--id x">X</div><!--Mostrador--> 
+                </div>
+
+                <div class="btns">
+                    <button> Resetar Jogo </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="game">
+            <div class="column">
+                <div class="linha">
+                    <div identify="a1" class="area-jogada b d"></div>
+                    <div identify="a2" class="area-jogada b d"></div>
+                    <div identify="a3" class="area-jogada b"></div>
+                </div>
+                <div class="linha">
+                    <div identify="b1" class="area-jogada b d"></div>
+                    <div identify="b2" class="area-jogada b d"></div>
+                    <div identify="b3" class="area-jogada b"></div>
+                </div>
+                <div class="linha">
+                    <div identify="c1" class="area-jogada d"></div>
+                    <div identify="c2" class="area-jogada d"></div>
+                    <div identify="c3" class="area-jogada"></div>
+                </div>
+                <!--
+                <div class="btns">
+                    <button> Voltar uma jogada </button>
+                </div>
+                -->
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
